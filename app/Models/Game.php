@@ -11,12 +11,22 @@ class Game extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'genre', 'developer', 'publisher', 'platform', 'max_players', 'status', 'description',
+        'name',
+        'genre',
+        'developer',
+        'publisher',
+        'platform',
+        'max_players',
+        'status',
+        'description',
+        'image',
     ];
 
     protected function casts(): array
     {
-        return ['max_players' => 'integer'];
+        return [
+            'max_players' => 'integer',
+        ];
     }
 
     public function tournaments(): HasMany

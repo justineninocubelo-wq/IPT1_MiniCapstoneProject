@@ -1,0 +1,1 @@
+Laravel public access works

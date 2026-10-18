@@ -1,3 +1,14 @@
-@extends('layouts.app')
-@section('title','Add Team')
-@section('content')<div class="d-flex justify-content-between mb-4"><h2 class="fw-bold">Add Team</h2><a href="{{ route('teams.index') }}" class="btn btn-outline-secondary">Back</a></div><form method="POST" action="{{ route('teams.store') }}">@csrf @include('teams.form')</form>@endsection
+
+@php
+    $editorTitle = 'Add Team';
+    $editorCategory = 'ESPORTS ORGANIZATIONS';
+    $editorMode = 'NEW ENTRY';
+    $editorDescription = 'Build and manage your competitive esports organization.';
+    $editorResource = 'teams';
+    $editorPlural = 'Teams';
+    $editorAction = route('teams.store');
+    $editorUpload = true;
+    $editorIsEdit = false;
+@endphp
+
+@extends('layouts.gtms-editor')

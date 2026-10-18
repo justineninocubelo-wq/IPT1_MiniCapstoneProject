@@ -1,0 +1,279 @@
+
+/* GTMS Create/Edit Form Design */
+
+.gtms-editor {
+    max-width: 1240px;
+    margin: 0 auto 50px;
+}
+
+.gtms-editor .editor-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.gtms-editor .editor-kicker {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: #9a8bff;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.gtms-editor .editor-title {
+    font-family: Orbitron, sans-serif;
+    font-weight: 800;
+    color: #fff;
+    font-size: clamp(23px, 2.6vw, 31px);
+    margin: 0 0 8px;
+}
+
+.gtms-editor .editor-subtitle {
+    color: #9caad0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.gtms-editor .editor-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    border: 1px solid #394565;
+    border-radius: 12px;
+    padding: 11px 18px;
+    color: #d5dcf7;
+    background: #141c34;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.gtms-editor .editor-back:hover {
+    border-color: #8a65ff;
+    color: #fff;
+    background: #24224c;
+}
+
+.gtms-editor .card {
+    border: 1px solid rgba(143, 123, 255, 0.23) !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    background: #111a30 !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.23),
+                0 0 45px rgba(100, 71, 240, 0.07) !important;
+    color: #eaf0ff !important;
+}
+
+.gtms-editor .card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #5865f2,
+        #a43cff,
+        #00caff
+    );
+}
+
+.gtms-editor .card-body {
+    padding: clamp(20px, 3vw, 38px) !important;
+}
+
+.gtms-editor .editor-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 0 21px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(157, 171, 225, 0.13);
+}
+
+.gtms-editor .editor-section-icon {
+    height: 49px;
+    width: 49px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    font-size: 23px;
+    background: linear-gradient(145deg, #4338a6, #743bea);
+    box-shadow: 0 8px 23px #6035e33b;
+}
+
+.gtms-editor .editor-section h3 {
+    font: 700 16px Orbitron, sans-serif;
+    letter-spacing: 0.2px;
+    color: #fff;
+    margin: 0 0 5px;
+}
+
+.gtms-editor .editor-section p {
+    margin: 0;
+    color: #91a0c6;
+    font-size: 14px;
+}
+
+.gtms-editor .row.g-3 {
+    --bs-gutter-x: 22px;
+    --bs-gutter-y: 23px;
+}
+
+.gtms-editor .form-label {
+    display: block;
+    color: #b8c5e9 !important;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.gtms-editor .form-control,
+.gtms-editor .form-select {
+    background-color: #0a1226 !important;
+    border: 1px solid #2d3a5a !important;
+    color: #f3f6ff !important;
+    border-radius: 11px !important;
+    min-height: 47px;
+    padding: 11px 14px;
+    box-shadow: none !important;
+    transition: border-color 0.2s,
+                box-shadow 0.2s,
+                background 0.2s;
+}
+
+.gtms-editor textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.gtms-editor .form-control:focus,
+.gtms-editor .form-select:focus {
+    background-color: #101936 !important;
+    border-color: #8a64ff !important;
+    box-shadow: 0 0 0 3px rgba(135, 96, 255, 0.16) !important;
+}
+
+.gtms-editor .form-control::placeholder {
+    color: #657597 !important;
+}
+
+.gtms-editor .form-select,
+.gtms-editor input[type="date"],
+.gtms-editor input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+.gtms-editor select[multiple] {
+    min-height: 112px;
+}
+
+.gtms-editor select option {
+    background: #101a32;
+    color: #fff;
+}
+
+.gtms-editor input[type="file"] {
+    padding: 8px !important;
+    cursor: pointer;
+}
+
+.gtms-editor input[type="file"]::file-selector-button {
+    border: 0;
+    border-radius: 8px;
+    background: #4737a0;
+    color: #fff;
+    padding: 8px 13px;
+    margin-right: 14px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.gtms-editor img {
+    border: 1px solid rgba(156, 170, 234, 0.25);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.gtms-editor .text-muted,
+.gtms-editor small {
+    color: #95a4c9 !important;
+}
+
+.gtms-editor .invalid-feedback {
+    color: #ff869b;
+}
+
+.gtms-editor .is-invalid {
+    border-color: #e45a80 !important;
+}
+
+.gtms-editor .row.g-3 > .col-12:last-child {
+    margin-top: 29px;
+    padding-top: 23px;
+    border-top: 1px solid rgba(157, 171, 225, 0.13);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.gtms-editor .btn-primary {
+    background: linear-gradient(105deg, #5364f7, #8b38ee) !important;
+    border: 0 !important;
+    color: #fff !important;
+    border-radius: 11px !important;
+    padding: 12px 26px !important;
+    min-height: 47px;
+    font-weight: 800 !important;
+    box-shadow: 0 9px 22px rgba(95, 74, 230, 0.3);
+}
+
+.gtms-editor .btn-primary:hover {
+    filter: brightness(1.14);
+    transform: translateY(-1px);
+}
+
+.gtms-editor .editor-cancel {
+    background: #19223c;
+    color: #cbd5f1;
+    border: 1px solid #3b4765;
+    border-radius: 11px;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 11px 23px;
+    min-height: 47px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.gtms-editor .editor-cancel:hover {
+    color: #fff;
+    border-color: #8a64ff;
+}
+
+.gtms-editor .editor-errors {
+    border: 1px solid #9f4768;
+    background: #3c1c35;
+    color: #ffd5e0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767px) {
+    .gtms-editor .editor-heading {
+        align-items: flex-start;
+    }
+
+    .gtms-editor .card-body {
+        padding: 19px !important;
+    }
+
+    .gtms-editor .editor-section h3 {
+        font-size: 14px;
+    }
+}

@@ -11,7 +11,15 @@ class Player extends Model
     use HasFactory;
 
     protected $fillable = [
-        'gamer_tag', 'full_name', 'email', 'birth_date', 'country', 'skill_rating', 'status', 'bio',
+        'gamer_tag',
+        'full_name',
+        'email',
+        'birth_date',
+        'country',
+        'skill_rating',
+        'status',
+        'bio',
+        'profile_image',
     ];
 
     protected function casts(): array
@@ -24,6 +32,12 @@ class Player extends Model
 
     public function teams(): BelongsToMany
     {
-        return $this->belongsToMany(Team::class)->withPivot(['role', 'jersey_number', 'joined_at'])->withTimestamps();
+        return $this->belongsToMany(Team::class)
+            ->withPivot([
+                'role',
+                'jersey_number',
+                'joined_at',
+            ])
+            ->withTimestamps();
     }
 }

@@ -12,17 +12,33 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'tag', 'captain_name', 'coach_name', 'country', 'founded_year', 'status', 'description',
+        'name',
+        'tag',
+        'captain_name',
+        'coach_name',
+        'country',
+        'founded_year',
+        'status',
+        'description',
+        'banner_image',
     ];
 
     protected function casts(): array
     {
-        return ['founded_year' => 'integer'];
+        return [
+            'founded_year' => 'integer',
+        ];
     }
 
     public function players(): BelongsToMany
     {
-        return $this->belongsToMany(Player::class)->withPivot(['role', 'jersey_number', 'joined_at'])->withTimestamps();
+        return $this->belongsToMany(Player::class)
+            ->withPivot([
+                'role',
+                'jersey_number',
+                'joined_at',
+            ])
+            ->withTimestamps();
     }
 
     public function matchesAsTeamA(): HasMany

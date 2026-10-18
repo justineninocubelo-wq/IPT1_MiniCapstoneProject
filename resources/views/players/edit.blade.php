@@ -1,6 +1,14 @@
-@extends('layouts.app')
-@section('title','Edit Player')
-@section('content')
-<div class="d-flex justify-content-between mb-4"><h2 class="fw-bold">Edit Player</h2><a href="{{ route('players.index') }}" class="btn btn-outline-secondary">Back</a></div>
-<form method="POST" action="{{ route('players.update',$player) }}">@csrf @method('PUT') @include('players.form')</form>
-@endsection
+
+@php
+    $editorTitle = 'Edit Player';
+    $editorCategory = 'PLAYER ROSTER';
+    $editorMode = 'EDIT ENTRY';
+    $editorDescription = 'Manage gamer identities, team assignments and player profiles.';
+    $editorResource = 'players';
+    $editorPlural = 'Players';
+    $editorAction = route('players.update', $player);
+    $editorUpload = true;
+    $editorIsEdit = true;
+@endphp
+
+@extends('layouts.gtms-editor')

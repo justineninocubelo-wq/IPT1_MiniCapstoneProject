@@ -1,3 +1,14 @@
-@extends('layouts.app')
-@section('title','Add Match')
-@section('content')<div class="d-flex justify-content-between mb-4"><h2 class="fw-bold">Add Match</h2><a href="{{ route('matches.index') }}" class="btn btn-outline-secondary">Back</a></div><form method="POST" action="{{ route('matches.store') }}">@csrf @include('matches.form')</form>@endsection
+
+@php
+    $editorTitle = 'Add Match';
+    $editorCategory = 'MATCH CONTROL';
+    $editorMode = 'NEW ENTRY';
+    $editorDescription = 'Manage matchups, schedules, results and winners.';
+    $editorResource = 'matches';
+    $editorPlural = 'Matches';
+    $editorAction = route('matches.store');
+    $editorUpload = false;
+    $editorIsEdit = false;
+@endphp
+
+@extends('layouts.gtms-editor')

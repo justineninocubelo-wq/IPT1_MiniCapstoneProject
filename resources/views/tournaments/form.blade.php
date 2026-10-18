@@ -1,12 +1,106 @@
-<div class="card"><div class="card-body p-4"><div class="row g-3">
-<div class="col-md-6"><label class="form-label">Game</label><select name="game_id" class="form-select" required><option value="">Select game</option>@foreach($games as $game)<option value="{{ $game->id }}" @selected((string)old('game_id',$tournament->game_id)===(string)$game->id)>{{ $game->name }}</option>@endforeach</select></div>
-<div class="col-md-6"><label class="form-label">Tournament Name</label><input name="name" class="form-control" value="{{ old('name',$tournament->name) }}" required></div>
-<div class="col-md-3"><label class="form-label">Season</label><input name="season" class="form-control" value="{{ old('season',$tournament->season) }}" required></div>
-<div class="col-md-5"><label class="form-label">Venue</label><input name="venue" class="form-control" value="{{ old('venue',$tournament->venue) }}" required></div>
-<div class="col-md-2"><label class="form-label">Start Date</label><input type="date" name="start_date" class="form-control" value="{{ old('start_date',$tournament->start_date?->format('Y-m-d')) }}" required></div>
-<div class="col-md-2"><label class="form-label">End Date</label><input type="date" name="end_date" class="form-control" value="{{ old('end_date',$tournament->end_date?->format('Y-m-d')) }}" required></div>
-<div class="col-md-4"><label class="form-label">Format</label><select name="format" class="form-select">@foreach(['single_elimination','double_elimination','round_robin','swiss'] as $format)<option value="{{ $format }}" @selected(old('format',$tournament->format)===$format)>{{ ucwords(str_replace('_',' ',$format)) }}</option>@endforeach</select></div>
-<div class="col-md-4"><label class="form-label">Prize Pool (PHP)</label><input type="number" step="0.01" min="0" name="prize_pool" class="form-control" value="{{ old('prize_pool',$tournament->prize_pool ?? 0) }}" required></div>
-<div class="col-md-4"><label class="form-label">Status</label><select name="status" class="form-select">@foreach(['upcoming','ongoing','completed','cancelled'] as $status)<option value="{{ $status }}" @selected(old('status',$tournament->status ?? 'upcoming')===$status)>{{ ucfirst($status) }}</option>@endforeach</select></div>
-<div class="col-12"><label class="form-label">Description</label><textarea name="description" class="form-control" rows="4">{{ old('description',$tournament->description) }}</textarea></div>
-<div class="col-12"><button class="btn btn-primary">Save Tournament</button></div></div></div></div>
+
+<div class="card">
+    <div class="card-body p-4">
+        <div class="editor-section">
+            <span class="editor-section-icon">🏆</span>
+            <div>
+                <h3>Tournament setup</h3>
+                <p>Configure the competition schedule and event details.</p>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Game</label>
+                <select name="game_id" class="form-select" required>
+                    <option value="">Select game</option>
+                    @foreach ($games as $game)
+                        <option value="{{ $game->id }}"
+                            @selected((string) old('game_id', $tournament->game_id) === (string) $game->id)>
+                            {{ $game->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Tournament Name</label>
+                <input name="name" class="form-control"
+                    value="{{ old('name', $tournament->name) }}" required>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Season</label>
+                <input name="season" class="form-control"
+                    value="{{ old('season', $tournament->season) }}" required>
+            </div>
+
+            <div class="col-md-5">
+                <label class="form-label">Venue</label>
+                <input name="venue" class="form-control"
+                    value="{{ old('venue', $tournament->venue) }}" required>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Start Date</label>
+                <input type="date" name="start_date" class="form-control"
+                    value="{{ old('start_date', $tournament->start_date?->format('Y-m-d')) }}"
+                    required>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">End Date</label>
+                <input type="date" name="end_date" class="form-control"
+                    value="{{ old('end_date', $tournament->end_date?->format('Y-m-d')) }}"
+                    required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Format</label>
+                <select name="format" class="form-select">
+                    @foreach (['single_elimination', 'double_elimination', 'round_robin', 'swiss'] as $format)
+                        <option value="{{ $format }}"
+                            @selected(old('format', $tournament->format) === $format)>
+                            {{ ucwords(str_replace('_', ' ', $format)) }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Prize Pool (PHP)</label>
+                <input type="number" step="0.01" min="0"
+                    name="prize_pool" class="form-control"
+                    value="{{ old('prize_pool', $tournament->prize_pool ?? 0) }}"
+                    required>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-select">
+                    @foreach (['upcoming', 'ongoing', 'completed', 'cancelled'] as $status)
+                        <option value="{{ $status }}"
+                            @selected(old('status', $tournament->status ?? 'upcoming') === $status)>
+                            {{ ucfirst($status) }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea name="description" class="form-control"
+                    rows="4">{{ old('description', $tournament->description) }}</textarea>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                    Save Tournament
+                </button>
+                <a class="editor-cancel" href="{{ route('tournaments.index') }}">
+                    Cancel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
